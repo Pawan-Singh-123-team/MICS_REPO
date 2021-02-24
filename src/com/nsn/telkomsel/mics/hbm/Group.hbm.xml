@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Group" table="group">
+        <id name="groupKey" type="string">
+            <column name="GroupKey" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyId" type="string">
+            <column name="CompanyID" length="5" not-null="true">
+                <comment>Company ID 5 Digits Numeric</comment>
+            </column>
+        </property>
+        <property name="groupId" type="int">
+            <column name="GroupID" not-null="true" />
+        </property>
+        <property name="groupName" type="string">
+            <column name="GroupName" length="100" not-null="true" />
+        </property>
+        <property name="groupCli" type="string">
+            <column name="GroupCLI" length="45" />
+        </property>
+        <property name="incomingCallScreening" type="string">
+            <column name="IncomingCallScreening" length="100" />
+        </property>
+        <property name="outgoingCallScreening" type="string">
+            <column name="OutgoingCallScreening" length="100" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

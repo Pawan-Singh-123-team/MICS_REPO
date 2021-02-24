@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Incomingcallscreening" table="INCOMINGCALLSCREENING" schema="MICS">
+        <id name="rulekey" type="string">
+            <column name="RULEKEY" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="rulename" type="string">
+            <column name="RULENAME" length="100" not-null="true">
+                <comment>unique name of incoming call screening policy</comment>
+            </column>
+        </property>
+        <property name="callscreeningkey" type="string">
+            <column name="CALLSCREENINGKEY" length="10" not-null="true">
+                <comment>call screening key</comment>
+            </column>
+        </property>
+        <property name="orderindex" type="big_decimal">
+            <column name="ORDERINDEX" precision="22" scale="0" />
+        </property>
+        <property name="timebandkey" type="string">
+            <column name="TIMEBANDKEY" length="10" not-null="true" />
+        </property>
+        <property name="vlrprefix" type="string">
+            <column name="VLRPREFIX" length="50" />
+        </property>
+        <property name="callingpartytype" type="big_decimal">
+            <column name="CALLINGPARTYTYPE" precision="22" scale="0">
+                <comment>Bitwise-Or (or sum) of the values of selected type 2 Company OnNet 8 Partner OnNet 16 Community OnNet 999 OffNet</comment>
+            </column>
+        </property>
+        <property name="callingpartynumber" type="string">
+            <column name="CALLINGPARTYNUMBER" length="50" />
+        </property>
+        <property name="allow" type="big_decimal">
+            <column name="ALLOW" precision="22" scale="0" />
+        </property>
+        <property name="bearertype" type="big_decimal">
+            <column name="BEARERTYPE" precision="22" scale="0" />
+        </property>
+        <property name="rejectionannoid" type="big_decimal">
+            <column name="REJECTIONANNOID" precision="22" scale="0" />
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" not-null="true" />
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

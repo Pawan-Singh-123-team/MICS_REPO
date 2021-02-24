@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.WebuserRole" table="webuser_role">
+        <id name="webUserRoleKey" type="int">
+            <column name="WebUser_RoleKey" />
+            <generator class="assigned" />
+        </id>
+        <property name="webUserKey" type="java.lang.Integer">
+            <column name="WebUserKey" />
+        </property>
+        <property name="roleKey" type="java.lang.Integer">
+            <column name="RoleKey" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

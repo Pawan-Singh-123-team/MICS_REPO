@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Company" table="company">
+        <id name="companyKey" type="string">
+            <column name="CompanyKey" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyId" type="string">
+            <column name="CompanyID" length="5" not-null="true">
+                <comment>5 digits numeric, unmodifiable</comment>
+            </column>
+        </property>
+        <property name="companyName" type="string">
+            <column name="CompanyName" length="100" />
+        </property>
+        <property name="contactPerson" type="string">
+            <column name="ContactPerson" length="100" />
+        </property>
+        <property name="address" type="string">
+            <column name="Address" length="500" />
+        </property>
+        <property name="chargeString" type="string">
+            <column name="ChargeString" length="4">
+                <comment>The charge string which will be included in VPN string AVP in diameter request for MOC initiated by this company's user. 4 Digits numeric</comment>
+            </column>
+        </property>
+        <property name="locked" type="java.lang.Boolean">
+            <column name="Locked" />
+        </property>
+        <property name="enableForceOnNet" type="java.lang.Boolean">
+            <column name="EnableForceOnNet" />
+        </property>
+        <property name="enableGroupHunting" type="java.lang.Boolean">
+            <column name="EnableGroupHunting" />
+        </property>
+        <property name="enablePrivateCall" type="java.lang.Boolean">
+            <column name="EnablePrivateCall" />
+        </property>
+        <property name="companyCli" type="string">
+            <column name="CompanyCLI" length="45">
+                <comment>Company Main Number</comment>
+            </column>
+        </property>
+        <property name="useMainCliprefix" type="string">
+            <column name="UseMainCLIPrefix" length="45">
+                <comment>Company Main Number Prefix</comment>
+            </column>
+        </property>
+        <property name="clioption" type="java.lang.Integer">
+            <column name="CLIOption">
+                <comment>MSISDN = 0, PNP = 1</comment>
+            </column>
+        </property>
+        <property name="forceIncomingCallScreening" type="string">
+            <column name="ForceIncomingCallScreening" length="100" />
+        </property>
+        <property name="forceOutgoingCallScreening" type="string">
+            <column name="ForceOutgoingCallScreening" length="100" />
+        </property>
+        <property name="defaultIncomingCallScreening" type="string">
+            <column name="DefaultIncomingCallScreening" length="100" />
+        </property>
+        <property name="defaultOutgoingCallScreening" type="string">
+            <column name="DefaultOutgoingCallScreening" length="100" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="100" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="partnershipname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <!-- <message key="errors.required" />-->
+            <message><![CDATA[ Partnership Name is required ]]></message>
+        </field-validator>
+    </field>
+    <field name="companykey1">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+           <message><![CDATA[ Company 1 is required ]]></message>
+        </field-validator>
+    </field>
+    <field name="companykey2">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message><![CDATA[ Company 2 is required ]]></message>
+        </field-validator>
+		<field-validator type="fieldexpression">
+			<param name="expression">(companykey1 != companykey2)</param>
+			<message><![CDATA[ Company 1 and Company 2 can not be the same ! ]]></message>
+		</field-validator>
+    </field>
+    
+</validators>

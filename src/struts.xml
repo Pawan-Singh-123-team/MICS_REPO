@@ -1,0 +1,1354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources" value="micsMessages" />
+	
+
+	<package name="default" extends="struts-default" namespace="/">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+        <action name="MICSIndex" method="index"
+			class="com.nsn.telkomsel.mics.action.LoginAction">
+			<result name="sso"  type="tiles">welcomeMICS.tiles</result>
+			<result name="success"  type="tiles">mics.tiles</result>
+			<result name="error"  type="tiles">error.tiles</result>
+		</action>
+		<action name="login" method="login"
+			class="com.nsn.telkomsel.mics.action.LoginAction">
+			<result name="success"  type="tiles">welcomeMICS.tiles</result>
+			<result name="notLoggedIn"  type="tiles">mics.tiles</result>
+			<result name="error"  type="tiles">error.tiles</result>
+		</action>
+		
+		<action name="logout" method="logout" 
+			class="com.nsn.telkomsel.mics.action.LoginAction">
+			<result name="logout" type="tiles">micsLogout.tiles</result>
+		</action>
+		<!-- Web User -->
+		<action name="userInit" method="init"
+			class="com.nsn.telkomsel.mics.action.MICSUserAction">
+			<result name="success"  type="tiles">adminMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<result name="error"  type="tiles">error.tiles</result>
+		</action>
+		<action name="userAdd" method="addUser"
+			class="com.nsn.telkomsel.mics.action.MICSUserAction">
+			<result name="input" type="tiles">adminMICSUser.tiles</result>
+			<result name="success" type="tiles">successMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<!-- <result name="error" type="tiles">error.tiles</result> -->
+			<result name="error" type="tiles">adminMICSUser.tiles</result>
+		</action>
+		<action name="userDel" method="initDelete"
+			class="com.nsn.telkomsel.mics.action.MICSUserAction">
+			<result name="success"  type="tiles">delMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<result name="error"  type="tiles">error.tiles</result>
+		</action>
+		<action name="userDelSubmit" method="delUser"
+			class="com.nsn.telkomsel.mics.action.MICSUserAction">
+			<result name="success"  type="tiles">successDelMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<result name="error"  type="tiles">error.tiles</result>
+		</action>
+		<action name="userSearch" method="search"
+			class="com.nsn.telkomsel.mics.action.MICSUserSearchAction">
+			<result name="success"  type="tiles">searchMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<result name="error"  type="tiles">error.tiles</result>
+		</action>
+		<action name="userEdit" method="initEdit"
+			class="com.nsn.telkomsel.mics.action.MICSUserAction">
+			<result name="success"  type="tiles">editMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<result name="error"  type="tiles">error.tiles</result>
+		</action>
+		<action name="userEditSubmit" method="editUser"
+			class="com.nsn.telkomsel.mics.action.MICSUserAction">
+			<result name="success"  type="tiles">editMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">editMICSUser.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<result name="error"  type="tiles">error.tiles</result>
+		</action>
+		<action name="userSetPwd" method="initSetPwd"
+			class="com.nsn.telkomsel.mics.action.MICSUserAction">
+			<result name="success"  type="tiles">setPwdMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<result name="error"  type="tiles">setPwdMICSUser.tiles</result>
+		</action>
+		<action name="userSetPwdSubmit" method="submitSetPwd"
+			class="com.nsn.telkomsel.mics.action.MICSUserAction">
+			<result name="input"  type="tiles">setPwdMICSUser.tiles</result>
+			<result name="success"  type="tiles">setPwdMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<result name="error"  type="tiles">setPwdMICSUser.tiles</result>
+		</action>
+		<action name="changePwd" method="initChangePwd"
+			class="com.nsn.telkomsel.mics.action.MICSUserAction">
+			<result name="success"  type="tiles">changePwdMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<result name="error"  type="tiles">changePwdMICSUser.tiles</result>
+		</action>
+		<action name="changePwdSubmit" method="submitChangePwd"
+			class="com.nsn.telkomsel.mics.action.MICSUserAction">
+			<result name="input" type="tiles">changePwdMICSUser.tiles</result>
+			<result name="success"  type="tiles">changePwdMICSUser.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">error.tiles</result>
+			<result name="error"  type="tiles">changePwdMICSUser.tiles</result>
+		</action>
+		<!-- End Web User -->
+		<!-- Company -->
+		<action name="companyInitCreate" method="initCreate"
+			class="com.nsn.telkomsel.mics.action.CompanyAction">
+			<result name="success"  type="tiles">companyAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyError.tiles</result>
+		</action>
+		<action name="companyCreate" method="create"
+			class="com.nsn.telkomsel.mics.action.CompanyAction">
+			<result name="success"  type="tiles">companySuccess.tiles</result>
+			<result name="input"  type="tiles">companyAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyError.tiles</result>
+		</action>
+		<action name="companyInitSearch" method="initSearch"
+			class="com.nsn.telkomsel.mics.action.CompanyAction">
+			<result name="success"  type="tiles">companySearch.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyError.tiles</result>
+		</action>
+		<action name="companySearch" method="search"
+			class="com.nsn.telkomsel.mics.action.CompanyAction">
+			<result name="success"  type="tiles">companySearch.tiles</result>
+			<result name="input"  type="tiles">companySearch.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyError.tiles</result>
+		</action>
+		<action name="companyInitEdit" method="initEdit"
+			class="com.nsn.telkomsel.mics.action.CompanyAction">
+			<result name="success"  type="tiles">companyEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyError.tiles</result>
+		</action>
+		<action name="companyEdit" method="edit"
+			class="com.nsn.telkomsel.mics.action.CompanyAction">
+			<result name="success"  type="tiles">companyEdit.tiles</result>
+			<result name="input"  type="tiles">companyEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyError.tiles</result>
+		</action>
+		<action name="companyInitView" method="initView"
+			class="com.nsn.telkomsel.mics.action.CompanyAction">
+			<result name="success"  type="tiles">companyView.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyError.tiles</result>
+		</action>
+		<action name="companyInitDelete" method="initDelete"
+			class="com.nsn.telkomsel.mics.action.CompanyAction">
+			<result name="success"  type="tiles">companyDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyError.tiles</result>
+		</action>
+		<action name="companyDelete" method="delete"
+			class="com.nsn.telkomsel.mics.action.CompanyAction">
+			<result name="success"  type="tiles">companyDeleteSuccess.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyError.tiles</result>
+		</action>
+		<action name="companyInitAnno" method="initCreate"
+			class="com.nsn.telkomsel.mics.action.AnnouncementAction">
+			<result name="success"  type="tiles">companyAnno.tiles</result>
+			<result name="input"  type="tiles">companyAnno.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyAnno.tiles</result>
+		</action>
+		<action name="companyAnnoCPYChange" method="companyChange"
+			class="com.nsn.telkomsel.mics.action.AnnouncementAction">
+			<result name="success"  type="tiles">companyAnno.tiles</result>
+			<result name="input"  type="tiles">companyAnno.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyAnno.tiles</result>
+		</action>
+		<action name="companyAnnoCreate" method="create"
+			class="com.nsn.telkomsel.mics.action.AnnouncementAction">
+			<result name="success"  type="tiles">companyAnno.tiles</result>
+			<result name="input"  type="tiles">companyAnno.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companyAnno.tiles</result>
+		</action>
+        <action name="companyInitAutoSwitchbrdList" method="initListView"
+			class="com.nsn.telkomsel.mics.action.SwitchboardListAction">
+			<result name="success"  type="tiles">companySwitchboardList.tiles</result>
+			<result name="input"  type="tiles">companySwitchboardList.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboardList.tiles</result>
+		</action>
+		<action name="companyInitAutoSwitchbrdListEdit" method="initEdit"
+			class="com.nsn.telkomsel.mics.action.SwitchboardListAction">
+			<result name="success"  type="tiles">companySwitchboardEdit.tiles</result>
+			<result name="input"  type="tiles">companySwitchboardEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboardCreate.tiles</result>
+		</action>
+		<action name="companyInitAutoSwitchbrdListDelete" method="initDelete"
+			class="com.nsn.telkomsel.mics.action.SwitchboardListAction">
+			<result name="success"  type="tiles">companySwitchboardDelete.tiles</result>
+			<result name="input"  type="tiles">companySwitchboardDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboardCreate.tiles</result>
+		</action>
+		<action name="companyInitAutoSwitchbrdListDeleting" method="initDeleting"
+			class="com.nsn.telkomsel.mics.action.SwitchboardListAction">
+			<result name="success"  type="tiles">companySwitchboardDelete.tiles</result>
+			<result name="input"  type="tiles">companySwitchboardDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboardCreate.tiles</result>
+		</action>
+		<action name="companyInitAutoSwitchbrdListSave" method="initSave"
+			class="com.nsn.telkomsel.mics.action.SwitchboardListAction">
+			<result name="success"  type="tiles">companySwitchboardEdit.tiles</result>
+			<result name="input"  type="tiles">companySwitchboardEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboardCreate.tiles</result>
+		</action>
+		<action name="companySwitchboardListInitSearchDest" method="searchDestination"
+			class="com.nsn.telkomsel.mics.action.SwitchboardListAction">
+			<result name="success"  type="tiles">companySwitchboardDest.tiles</result>
+			<result name="input"  type="tiles">companySwitchboardDest.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboardDest.tiles</result>
+		</action>
+		<action name="companySwitchboardListSearchDest" method="searchDestination"
+			class="com.nsn.telkomsel.mics.action.SwitchboardListAction">
+			<result name="success"  type="tiles">companySwitchboardDest.tiles</result>
+			<result name="input"  type="tiles">companySwitchboardDest.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboardDest.tiles</result>
+		</action>
+		<action name="companySwitchboardListAddDest" method="addDestination"
+			class="com.nsn.telkomsel.mics.action.SwitchboardListAction">
+			<result name="success"  type="tiles">companySwitchboardEdit.tiles</result>
+			<result name="input"  type="tiles">companySwitchboardEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboardEdit.tiles</result>
+		</action>
+        <action name="companyInitAutoSwitchbrd" method="initCreate"
+			class="com.nsn.telkomsel.mics.action.SwitchboardAction">
+			<result name="success"  type="tiles">companySwitchboard.tiles</result>
+			<result name="input"  type="tiles">companySwitchboard.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboard.tiles</result>
+		</action>
+		<action name="companySwitchboardCreate" method="create"
+			class="com.nsn.telkomsel.mics.action.SwitchboardAction">
+			<result name="success"  type="tiles">companySwitchboard.tiles</result>
+			<result name="input"  type="tiles">companySwitchboard.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboard.tiles</result>
+		</action>
+		<action name="companySwitchboardInitSearchDest" method="searchDestination"
+			class="com.nsn.telkomsel.mics.action.SwitchboardAction">
+			<result name="success"  type="tiles">companySwitchboardDest.tiles</result>
+			<result name="input"  type="tiles">companySwitchboardDest.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboardDest.tiles</result>
+		</action>
+		<action name="companySwitchboardSearchDest" method="searchDestination"
+			class="com.nsn.telkomsel.mics.action.SwitchboardAction">
+			<result name="success"  type="tiles">companySwitchboardDest.tiles</result>
+			<result name="input"  type="tiles">companySwitchboardDest.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboardDest.tiles</result>
+		</action>
+		<action name="companySwitchboardAddDest" method="addDestination"
+			class="com.nsn.telkomsel.mics.action.SwitchboardAction">
+			<result name="success"  type="tiles">companySwitchboard.tiles</result>
+			<result name="input"  type="tiles">companySwitchboard.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">companyError.tiles</result>
+			<result name="error"  type="tiles">companySwitchboard.tiles</result>
+		</action>
+		<!-- End Company -->
+		<!--  Download-->
+		<action name="downloadCompanyInit" method="init"
+			class="com.nsn.telkomsel.mics.action.DownloadCompanyAction">
+			<result name="success"  type="tiles">downloadCompany.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadCompanyError.tiles</result>
+			<result name="error"  type="tiles">downloadCompanyError.tiles</result>
+		</action>
+		<action name="downloadCompany" method="download"
+			class="com.nsn.telkomsel.mics.action.DownloadCompanyAction">
+			<result name="success" type="stream">
+				<param name="contentType"></param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition"></param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadCompanyError.tiles</result>
+			<result name="error"  type="tiles">downloadCompanyError.tiles</result>
+		</action>
+		<action name="downloadGroupInit" method="init"
+			class="com.nsn.telkomsel.mics.action.DownloadGroupAction">
+			<result name="success"  type="tiles">downloadGroup.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadGroupError.tiles</result>
+			<result name="error"  type="tiles">downloadGroupError.tiles</result>
+		</action>
+		<action name="downloadGroup" method="download"
+			class="com.nsn.telkomsel.mics.action.DownloadGroupAction">
+			<result name="success" type="stream">
+				<param name="contentType"></param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition"></param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadGroupError.tiles</result>
+			<result name="error"  type="tiles">downloadGroupError.tiles</result>
+		</action>
+		<action name="downloadPartnershipInit" method="init"
+			class="com.nsn.telkomsel.mics.action.DownloadPartnershipAction">
+			<result name="success"  type="tiles">downloadPartnership.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadPartnershipError.tiles</result>
+			<result name="error"  type="tiles">downloadPartnershipError.tiles</result>
+		</action>
+		<action name="downloadPartnership" method="download"
+			class="com.nsn.telkomsel.mics.action.DownloadPartnershipAction">
+			<result name="success" type="stream">
+				<param name="contentType"></param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition"></param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadPartnershipError.tiles</result>
+			<result name="error"  type="tiles">downloadPartnershipError.tiles</result>
+		</action>
+		<action name="downloadCommunityInit" method="init"
+			class="com.nsn.telkomsel.mics.action.DownloadCommunityAction">
+			<result name="success"  type="tiles">downloadCommunity.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadCommunityError.tiles</result>
+			<result name="error"  type="tiles">downloadCommunityError.tiles</result>
+		</action>
+		<action name="downloadCommunity" method="download"
+			class="com.nsn.telkomsel.mics.action.DownloadCommunityAction">
+			<result name="success" type="stream">
+				<param name="contentType"></param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition"></param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadCommunityError.tiles</result>
+			<result name="error"  type="tiles">downloadCommunityError.tiles</result>
+		</action>
+		<action name="downloadEmployeeInit" method="init"
+			class="com.nsn.telkomsel.mics.action.DownloadEmployeeAction">
+			<result name="success"  type="tiles">downloadEmployee.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadEmployeeError.tiles</result>
+			<result name="error"  type="tiles">downloadEmployeeError.tiles</result>
+		</action>
+		<action name="downloadEmployee" method="download"
+			class="com.nsn.telkomsel.mics.action.DownloadEmployeeAction">
+			<result name="success" type="stream">
+				<param name="contentType"></param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition"></param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadEmployeeError.tiles</result>
+			<result name="error"  type="tiles">downloadEmployeeError.tiles</result>
+		</action>
+		<action name="downloadHuntingGroupInit" method="init"
+			class="com.nsn.telkomsel.mics.action.DownloadHuntingGroupAction">
+			<result name="success"  type="tiles">downloadHuntingGroup.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadHuntingGroupError.tiles</result>
+			<result name="error"  type="tiles">downloadHuntingGroupError.tiles</result>
+		</action>
+		<action name="downloadHuntingGroup" method="download"
+			class="com.nsn.telkomsel.mics.action.DownloadHuntingGroupAction">
+			<result name="success" type="stream">
+				<param name="contentType"></param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition"></param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadHuntingGroupError.tiles</result>
+			<result name="error"  type="tiles">downloadHuntingGroupError.tiles</result>
+		</action>
+		<action name="downloadProfileInit" method="init"
+			class="com.nsn.telkomsel.mics.action.DownloadProfileAction">
+			<result name="success"  type="tiles">downloadProfile.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadProfileError.tiles</result>
+			<result name="error"  type="tiles">downloadProfileError.tiles</result>
+		</action>
+		<action name="downloadProfile" method="download"
+			class="com.nsn.telkomsel.mics.action.DownloadProfileAction">
+			<result name="success" type="stream">
+				<param name="contentType"></param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition"></param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadProfileError.tiles</result>
+			<result name="error"  type="tiles">downloadProfileError.tiles</result>
+		</action>
+		<action name="downloadTmebandInit" method="init"
+			class="com.nsn.telkomsel.mics.action.DownloadTimebandAction">
+			<result name="success"  type="tiles">downloadTimeband.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadTimebandError.tiles</result>
+			<result name="error"  type="tiles">downloadTimebandError.tiles</result>
+		</action>
+		<action name="downloadTimeband" method="download"
+			class="com.nsn.telkomsel.mics.action.DownloadTimebandAction">
+			<result name="success" type="stream">
+				<param name="contentType"></param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition"></param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">downloadTimebandError.tiles</result>
+			<result name="error"  type="tiles">downloadTimebandError.tiles</result>
+		</action>
+		<!--  End Download -->
+		<!-- Group -->
+		<action name="groupInitCreate" method="initCreate"
+			class="com.nsn.telkomsel.mics.action.GroupAction">
+			<result name="success"  type="tiles">groupAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">groupError.tiles</result>
+			<result name="error"  type="tiles">groupError.tiles</result>
+		</action>
+		<action name="groupCreate" method="create"
+			class="com.nsn.telkomsel.mics.action.GroupAction">
+			<result name="success"  type="tiles">groupSuccess.tiles</result>
+			<result name="input"  type="tiles">groupAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">groupError.tiles</result>
+			<result name="error"  type="tiles">groupError.tiles</result>
+		</action>
+		<action name="groupSearch" method="search"
+			class="com.nsn.telkomsel.mics.action.GroupAction">
+			<result name="success"  type="tiles">groupSearch.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">groupError.tiles</result>
+			<result name="error"  type="tiles">groupError.tiles</result>
+		</action>
+		<action name="groupInitEdit" method="initEdit"
+			class="com.nsn.telkomsel.mics.action.GroupAction">
+			<result name="success"  type="tiles">groupEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">groupError.tiles</result>
+			<result name="error"  type="tiles">groupError.tiles</result>
+		</action>
+		<action name="groupEdit" method="edit"
+			class="com.nsn.telkomsel.mics.action.GroupAction">
+			<result name="success"  type="tiles">groupEdit.tiles</result>
+			<result name="input"  type="tiles">groupEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">groupError.tiles</result>
+			<result name="error"  type="tiles">groupError.tiles</result>
+		</action>
+		<action name="groupInitView" method="initView"
+			class="com.nsn.telkomsel.mics.action.GroupAction">
+			<result name="success"  type="tiles">groupView.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">groupError.tiles</result>
+			<result name="error"  type="tiles">groupError.tiles</result>
+		</action>
+		<action name="groupInitDelete" method="initDelete"
+			class="com.nsn.telkomsel.mics.action.GroupAction">
+			<result name="success"  type="tiles">groupDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">groupError.tiles</result>
+			<result name="error"  type="tiles">groupError.tiles</result>
+		</action>
+		<action name="groupDelete" method="delete"
+			class="com.nsn.telkomsel.mics.action.GroupAction">
+			<result name="success"  type="tiles">groupSuccess.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">groupError.tiles</result>
+			<result name="error"  type="tiles">groupError.tiles</result>
+		</action>
+		<!-- End Group -->
+		<!-- Partnership -->
+		<action name="partnershipInitCreate" method="initCreate"
+			class="com.nsn.telkomsel.mics.action.PartnershipAction">
+			<result name="success"  type="tiles">partnershipAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">partnershipError.tiles</result>
+			<result name="error"  type="tiles">partnershipError.tiles</result>
+		</action>
+		<action name="partnershipCreate" method="create"
+			class="com.nsn.telkomsel.mics.action.PartnershipAction">
+			<result name="success"  type="tiles">partnershipSuccess.tiles</result>
+			<result name="input"  type="tiles">partnershipAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">partnershipError.tiles</result>
+			<result name="error"  type="tiles">partnershipError.tiles</result>
+		</action>
+		<action name="partnershipSearch" method="search"
+			class="com.nsn.telkomsel.mics.action.PartnershipAction">
+			<result name="success"  type="tiles">partnershipSearch.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">partnershipError.tiles</result>
+			<result name="error"  type="tiles">partnershipError.tiles</result>
+		</action>
+		<action name="partnershipInitEdit" method="initEdit"
+			class="com.nsn.telkomsel.mics.action.PartnershipAction">
+			<result name="success"  type="tiles">partnershipEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">partnershipError.tiles</result>
+			<result name="error"  type="tiles">partnershipError.tiles</result>
+		</action>
+		<action name="partnershipInitView" method="initView"
+			class="com.nsn.telkomsel.mics.action.PartnershipAction">
+			<result name="success"  type="tiles">partnershipView.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">partnershipError.tiles</result>
+			<result name="error"  type="tiles">partnershipError.tiles</result>
+		</action>
+		<action name="partnershipEdit" method="edit"
+			class="com.nsn.telkomsel.mics.action.PartnershipAction">
+			<result name="success"  type="tiles">partnershipEdit.tiles</result>
+			<result name="input"  type="tiles">partnershipEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">partnershipError.tiles</result>
+			<result name="error"  type="tiles">partnershipError.tiles</result>
+		</action>
+		<action name="partnershipInitDelete" method="initDelete"
+			class="com.nsn.telkomsel.mics.action.PartnershipAction">
+			<result name="success"  type="tiles">partnershipDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">partnershipError.tiles</result>
+			<result name="error"  type="tiles">partnershipError.tiles</result>
+		</action>
+		<action name="partnershipDelete" method="delete"
+			class="com.nsn.telkomsel.mics.action.PartnershipAction">
+			<result name="success"  type="tiles">partnershipSuccess.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">partnershipError.tiles</result>
+			<result name="error"  type="tiles">partnershipError.tiles</result>
+		</action>
+		<!-- End Partnership -->
+		<!--  Community -->
+		<action name="communityInitCreate" method="initCreate"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communityAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityeError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityCreate" method="create"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communitySuccess.tiles</result>
+			<result name="input"  type="tiles">communityAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communitySearch" method="search"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communitySearch.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communitySearch.tiles</result>
+		</action>
+		<action name="communityInitEdit" method="initEdit"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communityEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityeError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityEdit" method="edit"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communityEdit.tiles</result>
+			<result name="input"  type="tiles">communityEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityInitView" method="initView"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communityView.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityeError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityInitSearchMember" method="initSearchMember"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communitySearchMember.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communitySearchMember" method="searchMember"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communitySearchMember.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityAddMember" method="searchAddMember"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communityAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityInitSearchMemberEdit" method="initSearchMember"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communitySearchMemberEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communitySearchMemberEdit" method="searchMember"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communitySearchMemberEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityAddMemberEdit" method="searchAddMember"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communityEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityDelMember" method="delMember"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communityAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityDelMemberEdit" method="delMember"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communityEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityInitDelete" method="initDelete"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communityDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityeError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<action name="communityDelete" method="delete"
+			class="com.nsn.telkomsel.mics.action.CommunityAction">
+			<result name="success"  type="tiles">communityDeleteSuccess.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">communityError.tiles</result>
+			<result name="error"  type="tiles">communityError.tiles</result>
+		</action>
+		<!--  End Community -->
+		<!-- Employee -->
+		<action name="employeeInitCreate" method="initCreate"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeError.tiles</result>
+		</action>
+		<action name="employeeCreate" method="create"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeSuccess.tiles</result>
+			<result name="input"  type="tiles">employeeAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeAdmin.tiles</result>
+		</action>
+		<action name="employeeAddNumber" method="addNumber"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeAdmin.tiles</result>
+		</action>
+		<action name="employeeDelNumber" method="delNumber"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeAdmin.tiles</result>
+		</action>
+		<action name="employeeSearch" method="search"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeSearch.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeError.tiles</result>
+		</action>
+		<action name="employeeInitEdit" method="initEdit"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeError.tiles</result>
+		</action>
+		<action name="employeeEdit" method="edit"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeEdit.tiles</result>
+			<result name="input"  type="tiles">employeeEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeEdit.tiles</result>
+		</action>
+		<action name="employeeInitView" method="initView"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeView.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeError.tiles</result>
+		</action>
+		<action name="employeeInitSipPassword" method="initSipPassword"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeSipPassword.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeError.tiles</result>
+		</action>
+		<action name="employeeSipPassword" method="sipPassword"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeSipPassword.tiles</result>
+			<result name="input"  type="tiles">employeeSipPassword.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeError.tiles</result>
+		</action>
+		<action name="employeeInitDelete" method="initDelete"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeError.tiles</result>
+		</action>
+		<action name="employeeDelete" method="delete"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeDeleteSuccess.tiles</result>
+			<result name="input"  type="tiles">employeeDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeError.tiles</result>
+		</action>
+		<action name="employeeAddNumberEdit" method="addNumber"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeError.tiles</result>
+		</action>
+		<action name="employeeDelNumberEdit" method="delNumber"
+			class="com.nsn.telkomsel.mics.action.EmployeeAction">
+			<result name="success"  type="tiles">employeeEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">employeeError.tiles</result>
+			<result name="error"  type="tiles">employeeError.tiles</result>
+		</action>
+		<!-- End Employee -->
+		
+		<!--  Start HuntingGroup -->
+		<action name="huntingGroupInitCreate" method="initCreate"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupCreate" method="create"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupSuccess.tiles</result>
+			<result name="input"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		
+		<action name="huntingGroupAddTimeband" method="addTimeband"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="timebandMoveUp" method="moveTimebandUp"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="timebandMoveDown" method="moveTimebandDown"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		
+		
+		<action name="huntingGroupDelTimeband" method="delTimeband"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+
+		<action name="huntingGroupTimebandMemberChange" method="addTimebandMember"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupTimebandMemberAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupViewSchedule" method="viewHuntingSchedule"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupTimebandAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="timebandMemberMoveUp" method="moveMemberUp"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupTimebandAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="timebandMemberMoveDown" method="moveMemberDown"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupTimebandAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleCreate" method="createHuntingSchedule"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleInitSearchMember" method="initSearchMember"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupTimebandMemberAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleSearchMember" method="searchMember"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupTimebandMemberAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupTimebandMemberAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleAddMember" method="searchAddMember"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupTimebandAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupTimebandMemberAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleDelMember" method="delMember"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupSearch" method="search"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupSearch.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupInitEdit" method="initEdit"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupEdit" method="edit"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupEditAddTimeband" method="addTimeband"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="hgEditTimebandMoveUp" method="moveTimebandUp"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="hgEditTimebandMoveDown" method="moveTimebandDown"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupEditDelTimeband" method="editDelTimeband"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupViewScheduleEdit" method="viewHuntingSchedule"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEditTimebandAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleEdit" method="createHuntingSchedule"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEditTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleEditInitSearchMember" method="initSearchMember"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEditTimebandMemberAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleEditSearchMember" method="searchMember"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEditTimebandMemberAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEditTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleEditAddMember" method="searchAddMember"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEditTimebandAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEditTimebandMemberAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="hgEditTimebandMemberMoveUp" method="moveMemberUp"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEditTimebandAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEditTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="hgEditTimebandMemberMoveDown" method="moveMemberDown"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEditTimebandAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEditTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleEditDelMember" method="editDelMember"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupEditTimebandAdmin.tiles</result>
+			<result name="input"  type="tiles">huntinggroupEditTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupInitView" method="initView"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupView.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupInitDelete" method="initDelete"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupDelete" method="delete"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupSuccess.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupViewScheduleDelete" method="viewHuntingSchedule"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupDeleteTimebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<action name="huntingGroupScheduleDelete" method="createHuntingSchedule"
+			class="com.nsn.telkomsel.mics.action.HuntingGroupAction">
+			<result name="success"  type="tiles">huntinggroupDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">huntinggroupError.tiles</result>
+			<result name="error"  type="tiles">huntinggroupError.tiles</result>
+		</action>
+		<!--  End HuntingGroup -->
+		<!-- Profile -->
+		<action name="profileInitCreate" method="initCreate"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileInitRuleAdd" method="initAddRule"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileAdminRuleAdd.tiles</result>
+			<result name="input"  type="tiles">profileAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileRuleAdd" method="addRule"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileAdmin.tiles</result>
+			<result name="input"  type="tiles">profileAdminRuleAdd.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileMoveUp" method="moveUp"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileAdmin.tiles</result>
+			<result name="input"  type="tiles">profileAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileMoveDown" method="moveDown"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileAdmin.tiles</result>
+			<result name="input"  type="tiles">profileAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileInitRuleEdit" method="initEditRule"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileAdminRuleEdit.tiles</result>
+			<result name="input"  type="tiles">profileAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileRuleEdit" method="editRule"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileAdmin.tiles</result>
+			<result name="input"  type="tiles">profileAdminRuleEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileRuleDelete" method="delRule"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileAdmin.tiles</result>
+			<result name="input"  type="tiles">profileAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		
+		<action name="profileCreate" method="create"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileSuccess.tiles</result>
+			<result name="input"  type="tiles">profileAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileScreeningTypeChange" method="screeningTypeChange"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileSearch" method="search"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileSearch.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileInitEdit" method="initEdit"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileEditInitRuleAdd" method="initAddRule"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileEditRuleAdd.tiles</result>
+			<result name="input"  type="tiles">profileEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileEditRuleAdd" method="addRule"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileEdit.tiles</result>
+			<result name="input"  type="tiles">profileEditRuleAdd.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileEditMoveUp" method="moveUp"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileEdit.tiles</result>
+			<result name="input"  type="tiles">profileEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileEditMoveDown" method="moveDown"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileEdit.tiles</result>
+			<result name="input"  type="tiles">profileEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileEditInitRuleEdit" method="initEditRule"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileEditRuleEdit.tiles</result>
+			<result name="input"  type="tiles">profileEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileEditRuleEdit" method="editRule"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileEdit.tiles</result>
+			<result name="input"  type="tiles">profileEditRuleEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileEditRuleDelete" method="editDelRule"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileEdit.tiles</result>
+			<result name="input"  type="tiles">profileEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileEdit" method="edit"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileEdit.tiles</result>
+			<result name="input"  type="tiles">profileEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileInitView" method="initView"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileView.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileInitDelete" method="initDelete"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileDelete" method="delete"
+			class="com.nsn.telkomsel.mics.action.ProfileAction">
+			<result name="success"  type="tiles">profileSuccess.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">profileError.tiles</result>
+			<result name="error"  type="tiles">profileError.tiles</result>
+		</action>
+		<action name="profileInitCopy" >
+			<result type="tiles">profileUnderConstruction.tiles</result>
+		</action>
+		<action name="profileInitAssign" >
+			<result type="tiles">profileUnderConstruction.tiles</result>
+		</action>
+		<!-- End Profile -->
+		<!--  Timeband -->
+		<action name="timebandInitCreate" method="initCreate"
+			class="com.nsn.telkomsel.mics.action.TimebandAction">
+			<result name="success"  type="tiles">timebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">timebandError.tiles</result>
+			<result name="error"  type="tiles">timebandError.tiles</result>
+		</action>
+		<action name="timebandCreate" method="create"
+			class="com.nsn.telkomsel.mics.action.TimebandAction">
+			<result name="success"  type="tiles">timebandSuccess.tiles</result>
+			<result name="input"  type="tiles">timebandAdmin.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">timebandError.tiles</result>
+			<result name="error"  type="tiles">timebandError.tiles</result>
+		</action>
+		<action name="timebandSearch" method="search"
+			class="com.nsn.telkomsel.mics.action.TimebandAction">
+			<result name="success"  type="tiles">timebandSearch.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">timebandError.tiles</result>
+			<result name="error"  type="tiles">timebandError.tiles</result>
+		</action>
+		<action name="timebandInitEdit" method="initEdit"
+			class="com.nsn.telkomsel.mics.action.TimebandAction">
+			<result name="success"  type="tiles">timebandEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">timebandError.tiles</result>
+			<result name="error"  type="tiles">timebandError.tiles</result>
+		</action>
+		<action name="timebandEdit" method="edit"
+			class="com.nsn.telkomsel.mics.action.TimebandAction">
+			<result name="success"  type="tiles">timebandEdit.tiles</result>
+			<result name="input"  type="tiles">timebandEdit.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">timebandError.tiles</result>
+			<result name="error"  type="tiles">timebandError.tiles</result>
+		</action>
+		<action name="timebandInitView" method="initView"
+			class="com.nsn.telkomsel.mics.action.TimebandAction">
+			<result name="success"  type="tiles">timeband.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">timebandError.tiles</result>
+			<result name="error"  type="tiles">timebandError.tiles</result>
+		</action>
+		<action name="timebandInitDelete" method="initDelete"
+			class="com.nsn.telkomsel.mics.action.TimebandAction">
+			<result name="success"  type="tiles">timebandDelete.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">timebandError.tiles</result>
+			<result name="error"  type="tiles">timebandError.tiles</result>
+		</action>
+		<action name="timebandDelete" method="delete"
+			class="com.nsn.telkomsel.mics.action.TimebandAction">
+			<result name="success"  type="tiles">timebandSuccess.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">timebandError.tiles</result>
+			<result name="error"  type="tiles">timebandError.tiles</result>
+		</action>
+		<!-- End Timeband -->
+		<action name="auditTrailView" method="search"
+			class="com.nsn.telkomsel.mics.action.AuditTrailAction">
+			<result name="success"  type="tiles">auditTrailView.tiles</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">auditTrailError.tiles</result>
+			<result name="error"  type="tiles">auditTrailError.tiles</result>
+		</action>
+		<action name="oneClickAccess" method="forward"
+			class="com.nsn.telkomsel.mics.action.OneClickAction">
+			<result name="success"  type="redirect">
+				<param name="location">http://localhost:8080/WanClicko</param>
+         		<param name="ukey">0</param>
+			</result>
+			<result name="notLoggedIn" type="tiles">mics.tiles</result>
+			<result name="notAuth" type="tiles">oneClickError.tiles</result>
+			<result name="error"  type="tiles">oneClickError.tiles</result>
+		</action>
+		<action name="phonebookDownload" >
+			<result type="tiles">phonebookUnderConstruction.tiles</result>
+		</action>
+		<action name="orderViewer" >
+			<result type="tiles">orderviewerUnderConstruction.tiles</result>
+		</action>
+	</package>
+</struts>

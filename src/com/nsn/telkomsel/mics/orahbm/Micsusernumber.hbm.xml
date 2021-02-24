@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Micsusernumber" table="MICSUSERNUMBER" schema="MICS">
+        <id name="micsusernumber" type="string">
+            <column name="MICSUSERNUMBER" length="25" />
+            <generator class="assigned" />
+        </id>
+        <property name="companykey" type="string">
+            <column name="COMPANYKEY" length="7" not-null="true" />
+        </property>
+        <property name="micsuserkey" type="string">
+            <column name="MICSUSERKEY" length="10" not-null="true" />
+        </property>
+        <property name="orderindex" type="big_decimal">
+            <column name="ORDERINDEX" precision="22" scale="0" />
+        </property>
+        <property name="publicnumber" type="string">
+            <column name="PUBLICNUMBER" length="50" not-null="true" />
+        </property>
+        <property name="privatenumber" type="string">
+            <column name="PRIVATENUMBER" length="50" />
+        </property>
+        <property name="numbertype" type="big_decimal">
+            <column name="NUMBERTYPE" precision="22" scale="0" />
+        </property>
+        <property name="lastanswer" type="string">
+            <column name="LASTANSWER" length="1" />
+        </property>
+        <property name="imsi" type="string">
+            <column name="IMSI" length="20" />
+        </property>
+        <property name="sipuri" type="string">
+            <column name="SIPURI" length="200" />
+        </property>
+        <property name="prov_req_id" type="big_decimal">
+            <column name="PROV_REQ_ID" precision="22" scale="0" />
+        </property>
+        <property name="prov_req_status" type="big_decimal">
+            <column name="PROV_REQ_STATUS"  precision="22" scale="0" />
+        </property>
+         <property name="ocsid" type="string">
+            <column name="OCSID" length="30" />
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" not-null="true" />
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

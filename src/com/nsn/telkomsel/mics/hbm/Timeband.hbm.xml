@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Timeband" table="timeband">
+        <id name="timeBandKey" type="string">
+            <column name="TimeBandKey" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="daySelection" type="java.lang.Integer">
+            <column name="DaySelection">
+                <comment>Sunday = 2, Monday = 4, Tuesday = 8, Wednesday = 16, Thursday = 32, Friday = 64, Saturday = 128</comment>
+            </column>
+        </property>
+        <property name="allDay" type="java.lang.Boolean">
+            <column name="AllDay" />
+        </property>
+        <property name="beginHour" type="java.lang.Integer">
+            <column name="BeginHour">
+                <comment>0-23 Inclusive</comment>
+            </column>
+        </property>
+        <property name="beginMinute" type="java.lang.Integer">
+            <column name="BeginMinute">
+                <comment>0-59 Inclusive</comment>
+            </column>
+        </property>
+        <property name="endHour" type="java.lang.Integer">
+            <column name="EndHour">
+                <comment>0-23 Inclusive</comment>
+            </column>
+        </property>
+        <property name="endMinute" type="java.lang.Integer">
+            <column name="EndMinute">
+                <comment>0-59 Inclusive</comment>
+            </column>
+        </property>
+        <property name="invertTimeSelection" type="java.lang.Boolean">
+            <column name="InvertTimeSelection" />
+        </property>
+        <property name="forever" type="java.lang.Boolean">
+            <column name="Forever" />
+        </property>
+        <property name="effectiveStartDate" type="string">
+            <column name="EffectiveStartDate" length="45">
+                <comment>yyyy/MM/dd HH:mm</comment>
+            </column>
+        </property>
+        <property name="effectiveEndDate" type="string">
+            <column name="EffectiveEndDate" length="45">
+                <comment>yyyy/MM/dd HH:mm</comment>
+            </column>
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

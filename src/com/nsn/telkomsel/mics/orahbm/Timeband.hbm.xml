@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Timeband" table="TIMEBAND" schema="MICS">
+        <composite-id name="id" class="com.nsn.telkomsel.mics.orahbm.TimebandId">
+            <key-property name="timebandkey" type="string">
+                <column name="TIMEBANDKEY" length="10" />
+            </key-property>
+            <key-property name="timebandname" type="string">
+                <column name="TIMEBANDNAME" length="100" />
+            </key-property>
+        </composite-id>
+        <property name="timebanddescription" type="string">
+            <column name="TIMEBANDDESCRIPTION" length="250" />
+        </property>
+        <property name="dayselecetion" type="big_decimal">
+            <column name="DAYSELECTION" precision="22" scale="0">
+                <comment>Bitwise-Or (or sum) of the values of selected days Sunday - 2 Monday -4 Tuesday - 8 Wednesday - 16 Thursday - 32 Friday - 64 Saturday - 128</comment>
+            </column>
+        </property>
+        <property name="allday" type="big_decimal">
+            <column name="ALLDAY" precision="22" scale="0" />
+        </property>
+        <property name="beginhour" type="big_decimal">
+            <column name="BEGINHOUR" precision="22" scale="0">
+                <comment>0-23 Inclusive</comment>
+            </column>
+        </property>
+        <property name="beginminute" type="big_decimal">
+            <column name="BEGINMINUTE" precision="22" scale="0">
+                <comment>0-59 inclusive</comment>
+            </column>
+        </property>
+        <property name="endhour" type="big_decimal">
+            <column name="ENDHOUR" precision="22" scale="0">
+                <comment>0-23 inclusive</comment>
+            </column>
+        </property>
+        <property name="endminute" type="big_decimal">
+            <column name="ENDMINUTE" precision="22" scale="0">
+                <comment>0-59 inclusive</comment>
+            </column>
+        </property>
+        <property name="inverttimeselection" type="big_decimal">
+            <column name="INVERTTIMESELECTION" precision="22" scale="0" />
+        </property>
+        <property name="forever" type="big_decimal">
+            <column name="FOREVER" precision="22" scale="0" />
+        </property>
+        <property name="effectivestarttime" type="string">
+            <column name="EFFECTIVESTARTTIME" length="50" />
+        </property>
+        <property name="effectivestoptime" type="string">
+            <column name="EFFECTIVESTOPTIME" length="50" />
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" />
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

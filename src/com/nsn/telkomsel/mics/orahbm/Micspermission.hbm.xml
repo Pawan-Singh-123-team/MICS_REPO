@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Micspermission" table="MICSPERMISSION" schema="MICS">
+        <id name="micspermissionkey" type="big_decimal">
+            <column name="MICSPERMISSIONKEY" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="micsmenukey" type="string">
+            <column name="MICSMENUKEY" length="10" not-null="true" />
+        </property>
+        <property name="rolekey" type="string">
+            <column name="ROLEKEY" length="10" not-null="true" />
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" not-null="true" />
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19" not-null="true" />
+        </property>
+        <property name="accessflag" type="big_decimal">
+            <column name="ACCESSFLAG" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

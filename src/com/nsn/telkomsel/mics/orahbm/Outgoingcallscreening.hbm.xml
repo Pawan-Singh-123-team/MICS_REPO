@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Outgoingcallscreening" table="OUTGOINGCALLSCREENING" schema="MICS">
+        <id name="rulekey" type="string">
+            <column name="RULEKEY" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="rulename" type="string">
+            <column name="RULENAME" length="100" not-null="true" />
+        </property>
+        <property name="callscreeningkey" type="string">
+            <column name="CALLSCREENINGKEY" length="10" not-null="true" />
+        </property>
+        <property name="orderindex" type="big_decimal">
+            <column name="ORDERINDEX" precision="22" scale="0" />
+        </property>
+        <property name="timebandkey" type="string">
+            <column name="TIMEBANDKEY" length="10" not-null="true" />
+        </property>
+        <property name="vlrprefix" type="string">
+            <column name="VLRPREFIX" length="25" />
+        </property>
+        <property name="globalciprefix" type="string">
+            <column name="GLOBALCIPREFIX" length="26" />
+        </property>
+        <property name="calledpartytype" type="big_decimal">
+            <column name="CALLEDPARTYTYPE" precision="22" scale="0" />
+        </property>
+        <property name="calledpartynumber" type="string">
+            <column name="CALLEDPARTYNUMBER" length="50" />
+        </property>
+        <property name="allow" type="big_decimal">
+            <column name="ALLOW" precision="22" scale="0" not-null="true">
+                <comment>0 False 1 True</comment>
+            </column>
+        </property>
+        <property name="bearertype" type="big_decimal">
+            <column name="BEARERTYPE" precision="22" scale="0" />
+        </property>
+        <property name="rejectionannoid" type="big_decimal">
+            <column name="REJECTIONANNOID" precision="22" scale="0" />
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" />
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19"  />
+        </property>
+    </class>
+</hibernate-mapping>

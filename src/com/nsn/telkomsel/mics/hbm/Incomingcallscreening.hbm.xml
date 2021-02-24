@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Incomingcallscreening" table="incomingcallscreening">
+        <id name="ruleKey" type="string">
+            <column name="RuleKey" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="callScreeningKey" type="string">
+            <column name="CallScreeningKey" length="10" />
+        </property>
+        <property name="orderIndex" type="java.lang.Integer">
+            <column name="OrderIndex" />
+        </property>
+        <property name="timeBandKey" type="string">
+            <column name="TimeBandKey" length="10" />
+        </property>
+        <property name="vlrprefix" type="string">
+            <column name="VLRPrefix" length="10" />
+        </property>
+        <property name="callingPartyType" type="java.lang.Integer">
+            <column name="CallingPartyType">
+                <comment>Company OnNet=2, PartnerOnNet=8,CommunityOnNet=16,OffNet=992</comment>
+            </column>
+        </property>
+        <property name="callingPartyNumber" type="string">
+            <column name="CallingPartyNumber" length="45" />
+        </property>
+        <property name="allow" type="java.lang.Boolean">
+            <column name="Allow" />
+        </property>
+        <property name="rejectedAnnoId" type="java.lang.Integer">
+            <column name="RejectedAnnoID" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

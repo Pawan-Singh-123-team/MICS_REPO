@@ -1,0 +1,36 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+ 	<field name="companykey">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <!-- <message key="errors.required" />-->
+            <message><![CDATA[No Company selected, select company first before create group ]]></message>
+        </field-validator>
+    </field>
+    <field name="groupname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <!-- <message key="errors.required" />-->
+            <message><![CDATA[ Group Name is required ]]></message>
+        </field-validator>
+    </field>
+    
+     <field name="groupid">
+        <field-validator type="required">
+            <param name="trim">true</param>
+           <message><![CDATA[ Group ID is required ]]></message>
+        </field-validator>
+        <field-validator type="int">
+			<message><![CDATA[ Group ID must be numeric value ]]></message>
+		</field-validator>
+    </field>
+    
+    <field name="groupcli">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^[\+]?\d*$]]></param> 
+			<message><![CDATA[ Group CLI Number must be numeric value or started with plus sign]]></message>
+		</field-validator>
+    </field>
+    
+    
+</validators>

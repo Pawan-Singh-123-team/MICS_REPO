@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Switchboardsubmenu" table="SWITCHBOARDSUBMENU" schema="MICS">
+        <id name="switchboardsubmenukey" type="string">
+            <column name="SWITCHBOARDSUBMENUKEY" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="switchboardsubmenuname" type="string">
+            <column name="SWITCHBOARDSUBMENUNAME" length="100" />
+        </property>
+        <property name="switchboardmenukey" type="string">
+            <column name="SWITCHBOARDMENUKEY" length="10" not-null="true" />
+        </property>
+        <property name="dialdigit" type="big_decimal">
+            <column name="DIALDIGIT" precision="22" scale="0" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="250" />
+        </property>
+        <property name="destinationnumber" type="string">
+            <column name="DESTINATIONNUMBER" length="25" />
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" not-null="true" />
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

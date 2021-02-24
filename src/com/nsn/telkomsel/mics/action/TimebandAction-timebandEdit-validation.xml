@@ -1,0 +1,54 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="timebandName">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <!-- <message key="errors.required" />-->
+            <message><![CDATA[ Timeband Name is required ]]></message>
+        </field-validator>
+    </field>
+   
+
+    <field name="beginHour">
+        <field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">23</param>
+			<message><![CDATA[ Begin Hour must be integer min 0 max 23 ]]></message>
+		</field-validator>
+    </field>
+    <field name="beginMinute">
+        <field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">59</param>
+			<message><![CDATA[ Begin Minute must be integer min 0 max 59 ]]></message>
+		</field-validator>
+    </field>
+    <field name="endHour">
+        <field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">23</param>
+			<message><![CDATA[ End Hour must be integer min 0 max 23 ]]></message>
+		</field-validator>
+    </field>
+    <field name="endMinute">
+        <field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">59</param>
+			<message><![CDATA[ End Minute must be integer min 0 max 59 ]]></message>
+		</field-validator>
+    </field>
+    <field name="effectiveStartTime">
+    	<field-validator type="date">
+			<message><![CDATA[ Effective Start Time invalid date ]]></message>
+		</field-validator>
+    </field>
+     <field name="effectiveStopTime">
+    	<field-validator type="date">
+			<message><![CDATA[ Effective Stop Time invalid date ]]></message>
+		</field-validator>
+    </field>
+    <validator type="expression">
+		<param name="expression"><![CDATA[ ( (sunday == true)|| (monday == true) || (tuesday == true) || (wednesday == true)|| (thursday == true)|| (friday == true) || (saturday == true)) ]]></param>
+		<message><![CDATA[ Day Selection please select at least a day to be selected ]]></message>
+	</validator>
+</validators>

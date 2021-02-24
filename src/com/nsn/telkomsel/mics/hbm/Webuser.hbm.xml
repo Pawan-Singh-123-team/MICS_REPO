@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Webuser" table="webuser">
+        <id name="webUserKey" type="int">
+            <column name="WebUserKey" />
+            <generator class="assigned" />
+        </id>
+        <property name="userName" type="string">
+            <column name="UserName" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="45" />
+        </property>
+        <property name="token" type="string">
+            <column name="Token" length="100" />
+        </property>
+        <property name="companyKey" type="string">
+            <column name="CompanyKey" length="5" />
+        </property>
+        <property name="roleKey" type="int">
+            <column name="RoleKey" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

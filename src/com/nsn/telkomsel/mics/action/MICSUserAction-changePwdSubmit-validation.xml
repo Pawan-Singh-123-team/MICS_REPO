@@ -1,0 +1,40 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="userPassword">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^.*(?=.*[a-z]).*$]]></param> 
+			<message><![CDATA[ Password must contains lower case character]]></message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[^.*(?=.*[A-Z]).*$]]></param> 
+			<message><![CDATA[ Password must contains upper case character]]></message>
+		</field-validator>
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^.*(?=.*[0-9]).*$]]></param> 
+			<message><![CDATA[ Password must contains number]]></message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[^.*(?=.*[!@#$%^&*()_+=-]).*$]]></param> 
+			<message><![CDATA[ Password must contains special character]]></message>
+		</field-validator>
+		<!-- 
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[^.+.{8,20}$]]></param> 
+			<message><![CDATA[ Password length must be minimum 8 chars and maximum 20 chars]]></message>
+		</field-validator>
+		-->
+        <field-validator type="stringlength">
+			<param name="maxLength">20</param>
+			<param name="minLength">8</param>
+			<param name="trim">true</param>
+			 <message><![CDATA[ Password length must be minimum 8 chars and maximum 20 chars ]]></message>
+		</field-validator>
+    </field>
+    
+    <field name="userPasswordConf">
+		<field-validator type="fieldexpression">
+			<param name="expression">(userPassword == userPasswordConf)</param>
+			<message><![CDATA[ Password and Password confirmation does not match ]]></message>
+		</field-validator>
+    </field>    
+</validators>

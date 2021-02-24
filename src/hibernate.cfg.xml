@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="SessionFactory">
+ 
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.password">sqladmin</property>
+  <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/mics</property>
+  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="format_sql">true</property>
+  <property name="hibernate.use_sql_comments">true</property>
+  <!-- C3P0 Property -->
+  <property name="hibernate.c3p0.max_size">100</property>
+  <property name="hibernate.c3p0.min_size">25</property>
+  <property name="hibernate.c3p0.timeout">5000</property>
+  <property name="hibernate.c3p0.max_statements">100</property>
+  <property name="hibernate.c3p0.idle_test_period">3000</property>
+  <property name="hibernate.c3p0.acquire_increment">10</property>
+  <property name="hibernate.c3p0.validate">true</property>
+  <!--  Mapping -->
+
+  	<mapping resource="com/nsn/telkomsel/mics/hbm/Announcement.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Callscreening.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Community.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Communitymember.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Company.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Group.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Huntinggroup.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Huntingmember.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Huntingschedule.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Incomingcallscreening.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Loggedoffhuntingmember.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Number.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Numbertranslation.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Outgoingcallscreening.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Partnership.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Role.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Switchboard.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Switchboardmenu.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Switchboardsubmenu.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Timeband.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/User.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/Webuser.hbm.xml"/>
+	<mapping resource="com/nsn/telkomsel/mics/hbm/WebuserRole.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

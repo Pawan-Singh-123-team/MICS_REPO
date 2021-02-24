@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="mainLayout" template="/layout/MainLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/layout/Header.jsp" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/layout/Footer.jsp" />
+ 
+	</definition>
+	
+	<definition name="mics.tiles" extends="mainLayout">
+		<put-attribute name="title" value="Welcome to MICS" />
+		<put-attribute name="menu" value="/layout/EmptyMenu.jsp" />
+		<put-attribute name="body" value="/Login.jsp" />
+	</definition>
+	<definition name="micsLogout.tiles" extends="mainLayout">
+		<put-attribute name="title" value="Goodbye, thank you for using MICS" />
+		<put-attribute name="menu" value="/layout/EmptyMenu.jsp" />
+		<put-attribute name="body" value="/Logout.jsp" />
+	</definition>
+	
+	<definition name="micsAbout.tiles" extends="mainLayout">
+		<put-attribute name="title" value="About to MICS" />
+		<put-attribute name="body" value="/About.jsp" />
+	</definition>
+	
+	<definition name="welcomeMICS.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Web Portal" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Body.jsp" />
+	</definition>
+	
+	<definition name="adminMICSUser.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS User Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSUser.jsp" />
+	</definition>
+	<definition name="searchMICSUser.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS User Search" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSSearchUser.jsp" />
+	</definition>
+	<definition name="editMICSUser.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS User Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSUserEdit.jsp" />
+	</definition>
+	<definition name="changePwdMICSUser.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS User Change Password" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSUserChangePwd.jsp" />
+	</definition>
+	<definition name="setPwdMICSUser.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS User Change Password" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSUserSetPwd.jsp" />
+	</definition>
+	<definition name="delMICSUser.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS User Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSUserDelete.jsp" />
+	</definition>
+	<definition name="successDelMICSUser.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS User Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSUserDeleteSuccess.jsp" />
+	</definition>
+	<definition name="successMICSUser.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS User Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSUserSuccess.jsp" />
+	</definition>
+	
+	<!-- Company -->
+	<definition name="companyAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompany.jsp" />
+	</definition>
+	<definition name="companySearch.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Search" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanySearch.jsp" />
+	</definition>
+	<definition name="companyEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanyEdit.jsp" />
+	</definition>
+	<definition name="companyView.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company View" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanyView.jsp" />
+	</definition>
+	<definition name="companyDelete.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanyDelete.jsp" />
+	</definition>
+	<definition name="companyAnno.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Announcement Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanyAnno.jsp" />
+	</definition>
+	<definition name="companySwitchboardList.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Switchboard Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanySwitchboardList.jsp" />
+	</definition>
+	<definition name="companySwitchboardEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Switchboard Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanySwitchboardEdit.jsp" />
+	</definition>
+	<definition name="companySwitchboardDelete.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Switchboard Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanySwitchboardDelete.jsp" />
+	</definition>
+	<definition name="companySwitchboard.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Switchboard Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanySwitchboard.jsp" />
+	</definition>
+	<definition name="companySwitchboardDest.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Switchboard Destination" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanySwitchboardSearchDest.jsp" />
+	</definition>
+	<definition name="companyError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="companyUnderConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Under Construction" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	<definition name="companySuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanySuccess.jsp" />
+	</definition>
+	<definition name="companyDeleteSuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCompanyDeleteSuccess.jsp" />
+	</definition>
+	<!-- Download-->
+	<definition name="downloadCompany.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company List Download" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSDownloadCompany.jsp" />
+	</definition>
+	<definition name="downloadCompanyError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Company List Download Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="downloadGroup.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group List Download" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSDownloadGroup.jsp" />
+	</definition>
+	<definition name="downloadGroupError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group List Download Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="downloadPartnership.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Partnership List Download" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSDownloadPartnership.jsp" />
+	</definition>
+	<definition name="downloadPartnershipError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Partnership List Download Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="downloadCommunity.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community List Download" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSDownloadCommunity.jsp" />
+	</definition>
+	<definition name="downloadCommunityError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community List Download Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="downloadEmployee.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee List Download" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSDownloadEmployee.jsp" />
+	</definition>
+	<definition name="downloadEmployeeError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee List Download Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="downloadHuntingGroup.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Hunting Group List Download" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSDownloadHuntingGroup.jsp" />
+	</definition>
+	<definition name="downloadHuntingGroupError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Hunting Group List Download Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="downloadProfile.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile List Download" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSDownloadProfile.jsp" />
+	</definition>
+	<definition name="downloadProfileError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile List Download Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="downloadTimeband.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband List Download" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSDownloadTimeband.jsp" />
+	</definition>
+	<definition name="downloadTimebandError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband List Download Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<!-- Group -->
+	<definition name="groupAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSGroup.jsp" />
+	</definition>
+	<definition name="groupSearch.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group Search" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSGroupSearch.jsp" />
+	</definition>
+	<definition name="groupEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSGroupEdit.jsp" />
+	</definition>
+	<definition name="groupView.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group View" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSGroupView.jsp" />
+	</definition>
+	<definition name="groupDelete.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSGroupDelete.jsp" />
+	</definition>
+	<definition name="groupError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="groupUnderConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group Under Construction" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	<definition name="groupSuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSGroupSuccess.jsp" />
+	</definition>
+	<!--  Partnership -->
+	<definition name="partnershipAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Partnership Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSPartnership.jsp" />
+	</definition>
+	<definition name="partnershipSearch.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Partnership Search" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSPartnershipSearch.jsp" />
+	</definition>
+	<definition name="partnershipEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Partnership Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSPartnershipEdit.jsp" />
+	</definition>
+	<definition name="partnershipView.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Partnership View" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSPartnershipView.jsp" />
+	</definition>
+	<definition name="partnershipDelete.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Partnership Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSPartnershipDelete.jsp" />
+	</definition>
+	<definition name="partnershipError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Partnership Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="partnershipUnderConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Partnership Under Construction" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	<definition name="partnershipSuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Partnership Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSPartnershipSuccess.jsp" />
+	</definition>
+	<!-- Community -->
+	<definition name="communityAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCommunity.jsp" />
+	</definition>
+	<definition name="communitySearchMember.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community Search Member" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCommunitySearchMember.jsp" />
+	</definition>
+	<definition name="communitySearchMemberEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community Search Member" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCommunitySearchMemberEdit.jsp" />
+	</definition>
+	<definition name="communitySearch.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCommunitySearch.jsp" />
+	</definition>
+	<definition name="communityEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCommunityEdit.jsp" />
+	</definition>
+	<definition name="communityView.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community View" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCommunityView.jsp" />
+	</definition>
+	<definition name="communityDelete.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCommunityDelete.jsp" />
+	</definition>
+	<definition name="communityError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="communityUnderConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community Under Construction" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	<definition name="communitySuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCommunitySuccess.jsp" />
+	</definition>
+	<definition name="communityDeleteSuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Community Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSCommunityDeleteSuccess.jsp" />
+	</definition>
+	<!--  Employee -->
+	<definition name="employeeAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSEmployee.jsp" />
+	</definition>
+	<definition name="employeeSearch.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Group Search" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSEmployeeSearch.jsp" />
+	</definition>
+	<definition name="employeeEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSEmployeeEdit.jsp" />
+	</definition>
+	<definition name="employeeView.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee View" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSEmployeeView.jsp" />
+	</definition>
+	<definition name="employeeDelete.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSEmployeeDelete.jsp" />
+	</definition>
+	<definition name="employeeSipPassword.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee SIP Password" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSEmployeeSipPassword.jsp" />
+	</definition>
+
+	<definition name="employeeError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="employeeUnderConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee Under Construction" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	<definition name="employeeSuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSEmployeeSuccess.jsp" />
+	</definition>
+	<definition name="employeeDeleteSuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Employee Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSEmployeeDeleteSuccess.jsp" />
+	</definition>
+	<!--  HuntingGroup -->
+	<definition name="huntinggroupAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroup.jsp" />
+	</definition>
+	<definition name="huntinggroupTimebandAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroupSchedule.jsp" />
+	</definition>
+	<definition name="huntinggroupTimebandMemberAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroupScheduleSearchMember.jsp" />
+	</definition>
+	<definition name="huntinggroupSearch.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Search" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroupSearch.jsp" />
+	</definition>
+	<definition name="huntinggroupEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroupEdit.jsp" />
+	</definition>
+	<definition name="huntinggroupEditTimebandAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroupScheduleEdit.jsp" />
+	</definition>
+	<definition name="huntinggroupEditTimebandMemberAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroupScheduleEditSearchMember.jsp" />
+	</definition>
+	<definition name="huntinggroupView.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup View" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroupView.jsp" />
+	</definition>
+	<definition name="huntinggroupDelete.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroupDelete.jsp" />
+	</definition>
+	<definition name="huntinggroupDeleteTimebandAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroupScheduleDelete.jsp" />
+	</definition>
+	<definition name="huntinggroupError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="huntinggroupUnderConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Under Construction" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	<definition name="huntinggroupSuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS HuntingGroup Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSHuntingGroupSuccess.jsp" />
+	</definition>
+	<!--  Profile -->
+	<definition name="profileAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSProfile.jsp" />
+	</definition>
+	<definition name="profileAdminRuleAdd.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSProfileRuleAdd.jsp" />
+	</definition>
+	<definition name="profileAdminRuleEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSProfileRuleEdit.jsp" />
+	</definition>
+	<definition name="profileSearch.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Search" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSProfileSearch.jsp" />
+	</definition>
+	<definition name="profileEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSProfileEdit.jsp" />
+	</definition>
+	<definition name="profileEditRuleAdd.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSProfileEditRuleAdd.jsp" />
+	</definition>
+	<definition name="profileEditRuleEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSProfileEditRuleEdit.jsp" />
+	</definition>
+	<definition name="profileView.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile View" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSProfileView.jsp" />
+	</definition>
+	<definition name="profileDelete.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSProfileDelete.jsp" />
+	</definition>
+	<definition name="profileError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="profileUnderConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Under Construction" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	<definition name="profileSuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Profile Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSProfileSuccess.jsp" />
+	</definition>
+	<!--  Timeband -->
+	<definition name="timebandAdmin.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSTimeband.jsp" />
+	</definition>
+	<definition name="timebandError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="timebandSearch.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband Search" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSTimebandSearch.jsp" />
+	</definition>
+	<definition name="timebandEdit.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband Edit" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSTimebandEdit.jsp" />
+	</definition>
+	<definition name="timebandView.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband View" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSTimebandView.jsp" />
+	</definition>
+	<definition name="timebandDelete.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband Delete" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSTimebandDelete.jsp" />
+	</definition>
+	<definition name="timebandError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="timebandUnderConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband Under Construction" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	<definition name="timebandSuccess.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Timeband Administration" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSTimebandSuccess.jsp" />
+	</definition>
+	<!-- Audit Trail -->
+	<definition name="auditTrailView.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Audit Trail" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/MICSAuditTrail.jsp" />
+	</definition>
+	<definition name="auditTrailError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Audit Trail Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<!-- OneClick -->
+	<definition name="oneClickError.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS OneClick Error" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<!-- Phonebook -->
+	<definition name="phonebookUnderConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Phonebook Under Construction" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	<!-- Order Viewer -->
+	<definition name="orderviewerUnderConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS Order Viewer Under Construction" />
+		<put-attribute name="menu" value="/layout/MICSMenu.jsp" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	
+	<definition name="error.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS very sorry, that You encountered an Error" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	
+	<definition name="underConstruction.tiles" extends="mainLayout">
+		<put-attribute name="title" value="MICS very sorry, this menu under construction" />
+		<put-attribute name="body" value="/UnderConstruction.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

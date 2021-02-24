@@ -1,0 +1,107 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="micsfirstname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <!-- <message key="errors.required" />-->
+            <message><![CDATA[ First Name is required ]]></message>
+        </field-validator>
+    </field>
+    <field name="micslastname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+           <message><![CDATA[ Last Name is required ]]></message>
+        </field-validator>
+    </field>
+    <field name="usergroupid">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$]]></param> 
+			<message><![CDATA[ Group ID be numeric value ]]></message>
+		</field-validator>
+    </field>
+    <field name="subgroupid">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$]]></param> 
+			<message><![CDATA[ Sub Group ID be numeric value ]]></message>
+		</field-validator>
+    </field>
+   <field name="vpngroupid">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$]]></param> 
+			<message><![CDATA[ VPN Group ID must be numeric value ]]></message>
+		</field-validator>
+    </field>
+    <field name="pin">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$]]></param> 
+			<message><![CDATA[ PIN must be numeric value ]]></message>
+		</field-validator>
+        <field-validator type="stringlength">
+			<param name="maxLength">5</param>
+			<param name="minLength">5</param>
+			<param name="trim">true</param>
+			 <message><![CDATA[ PIN length must be 5 Digit ]]></message>
+		</field-validator>
+    </field>
+    <field name="pinConfirmation">
+
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$]]></param> 
+			<message><![CDATA[ PIN confirmation be numeric value ]]></message>
+		</field-validator>
+        <field-validator type="stringlength">
+			<param name="maxLength">5</param>
+			<param name="minLength">5</param>
+			<param name="trim">true</param>
+			 <message><![CDATA[ PIN Confirmation length must be 5 Digit ]]></message>
+		</field-validator>
+		<field-validator type="fieldexpression">
+			<param name="expression">(pinConfirmation == pin)</param>
+			<message><![CDATA[ PIN and PIN confirmation does not match ]]></message>
+		</field-validator>
+    </field>
+    <field name="sipPassword">
+    	<!-- 
+    	<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message><![CDATA[ SIP Password is required ]]></message>
+        </field-validator>
+         -->
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^.*(?=.*[a-z]).*$]]></param> 
+			<message><![CDATA[ SIP Password must contains lower case character]]></message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[^.*(?=.*[A-Z]).*$]]></param> 
+			<message><![CDATA[ SIP Password must contains upper case character]]></message>
+		</field-validator>
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^.*(?=.*[0-9]).*$]]></param> 
+			<message><![CDATA[ SIP Password must contains number]]></message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[^.*(?=.*[!@#$%^&*()_+=-]).*$]]></param> 
+			<message><![CDATA[ SIP Password must contains special character]]></message>
+		</field-validator>
+        <field-validator type="stringlength">
+			<param name="maxLength">20</param>
+			<param name="minLength">8</param>
+			<param name="trim">true</param>
+			 <message><![CDATA[ SIP Password length must be minimum 8 chars and maximum 20 chars ]]></message>
+		</field-validator>
+    </field>
+    <field name="sipPasswordConf">
+    	<!--  
+    	<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message><![CDATA[ SIP Password is required ]]></message>
+        </field-validator>
+        -->
+		<field-validator type="fieldexpression">
+			<param name="expression">(sipPassword == sipPasswordConf)</param>
+			<message><![CDATA[ SIP Password and SIP Password confirmation does not match ]]></message>
+		</field-validator>
+    </field>
+   
+    
+</validators>

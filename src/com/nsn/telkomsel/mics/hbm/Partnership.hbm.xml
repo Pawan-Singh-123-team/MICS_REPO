@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Partnership" table="partnership">
+        <id name="partnershipKey" type="string">
+            <column name="PartnershipKey" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="partnershipName" type="string">
+            <column name="PartnershipName" length="45" not-null="true" />
+        </property>
+        <property name="companyId1" type="string">
+            <column name="CompanyID_1" length="45" />
+        </property>
+        <property name="companyId2" type="string">
+            <column name="CompanyID_2" length="45" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

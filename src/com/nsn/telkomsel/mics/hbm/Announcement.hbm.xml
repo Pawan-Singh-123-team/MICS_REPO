@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Announcement" table="announcement">
+        <id name="announcementKey" type="string">
+            <column name="AnnouncementKey" length="15" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyId" type="string">
+            <column name="CompanyID" length="5" />
+        </property>
+        <property name="annoId" type="java.lang.Integer">
+            <column name="AnnoID" />
+        </property>
+        <property name="shortDescription" type="string">
+            <column name="ShortDescription" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" length="200" />
+        </property>
+        <property name="srfelementId" type="java.lang.Integer">
+            <column name="SRFElementID" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Callscreening" table="callscreening">
+        <id name="callScreeningKey" type="string">
+            <column name="CallScreeningKey" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="type" type="java.lang.Integer">
+            <column name="Type">
+                <comment>Outgoing = 1, Incoming = 2</comment>
+            </column>
+        </property>
+        <property name="level" type="java.lang.Integer">
+            <column name="Level">
+                <comment>Company = 1, Group = 2, User = 3</comment>
+            </column>
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" />
+        </property>
+        <property name="companyKey" type="string">
+            <column name="CompanyKey" length="5" />
+        </property>
+    </class>
+</hibernate-mapping>

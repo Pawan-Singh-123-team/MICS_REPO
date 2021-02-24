@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Switchboardmenu" table="switchboardmenu">
+        <id name="switchboardMenuKey" type="string">
+            <column name="SwitchboardMenuKey" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="switchboardKey" type="string">
+            <column name="SwitchboardKey" length="10" />
+        </property>
+        <property name="dialDigit" type="java.lang.Integer">
+            <column name="DialDigit" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" length="100" />
+        </property>
+        <property name="menuType" type="java.lang.Integer">
+            <column name="MenuType">
+                <comment>Destination = 1, Sub Menu = 2</comment>
+            </column>
+        </property>
+        <property name="destinationNumber" type="string">
+            <column name="DestinationNumber" length="45" />
+        </property>
+        <property name="annoId" type="java.lang.Integer">
+            <column name="AnnoID" />
+        </property>
+        <property name="upMenuDialDigit" type="java.lang.Integer">
+            <column name="UpMenuDialDigit" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

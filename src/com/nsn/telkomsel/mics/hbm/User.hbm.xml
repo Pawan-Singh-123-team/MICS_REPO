@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.User" table="user">
+        <id name="userKey" type="string">
+            <column name="UserKey" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="mainPrivateNumber" type="string">
+            <column name="MainPrivateNumber" length="45">
+                <comment>User's main short number. This must be one of user's private numbers</comment>
+            </column>
+        </property>
+        <property name="mainPublicNumber" type="string">
+            <column name="MainPublicNumber" length="45" not-null="true">
+                <comment>User's main public number (MSISDN). This must be on of user's Public Number</comment>
+            </column>
+        </property>
+        <property name="companyId" type="string">
+            <column name="CompanyID" length="5" not-null="true" />
+        </property>
+        <property name="groupId" type="java.lang.Integer">
+            <column name="GroupId" />
+        </property>
+        <property name="subGroupId" type="java.lang.Integer">
+            <column name="SubGroupId" />
+        </property>
+        <property name="userGroupId" type="string">
+            <column name="UserGroupID" length="45" />
+        </property>
+        <property name="userName" type="string">
+            <column name="UserName" length="45" />
+        </property>
+        <property name="userType" type="java.lang.Integer">
+            <column name="UserType">
+                <comment>Reguler = 0, OnNet = 1, Virtual = 2</comment>
+            </column>
+        </property>
+        <property name="locked" type="java.lang.Boolean">
+            <column name="Locked" />
+        </property>
+        <property name="userNumberAsCli" type="java.lang.Boolean">
+            <column name="UserNumberAsCLI" />
+        </property>
+        <property name="userNumberAsChargedParty" type="java.lang.Boolean">
+            <column name="UserNumberAsChargedParty" />
+        </property>
+        <property name="huntingOption" type="java.lang.Integer">
+            <column name="HuntingOption">
+                <comment>Disabled = 0, Fixed = 1, Mobile_First = 2, SIP_First = 3, Last_Answer_First = 4, Parallel = 5, For subscriber with only one number it must always be set
+                to 0</comment>
+            </column>
+        </property>
+        <property name="keepHuntingOnBusy" type="java.lang.Boolean">
+            <column name="KeepHuntingOnBusy" />
+        </property>
+        <property name="reverseCharging" type="java.lang.Boolean">
+            <column name="ReverseCharging" />
+        </property>
+        <property name="incomingCallScreening" type="string">
+            <column name="IncomingCallScreening" length="100" />
+        </property>
+        <property name="outgoingCallScreening" type="string">
+            <column name="OutgoingCallScreening" length="100" />
+        </property>
+        <property name="enableAnnoRecording" type="java.lang.Boolean">
+            <column name="enableAnnoRecording" />
+        </property>
+        <property name="pin" type="string">
+            <column name="PIN" length="10" />
+        </property>
+        <property name="language" type="java.lang.Integer">
+            <column name="Language">
+                <comment>Bahasa =0, English = 1</comment>
+            </column>
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

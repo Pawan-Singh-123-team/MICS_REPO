@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Webuser" table="WEBUSER" schema="MICS">
+        <id name="webuserkey" type="string">
+            <column name="WEBUSERKEY" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="webusername" type="string">
+            <column name="WEBUSERNAME" length="50" not-null="true" />
+        </property>
+        <property name="webuserpassword" type="string">
+            <column name="WEBUSERPASSWORD" length="100" not-null="true" />
+        </property>
+        <property name="ssotoken" type="string">
+            <column name="SSOTOKEN" length="100">
+                <comment>Token for Single Sign On if available</comment>
+            </column>
+        </property>
+        <property name="companykey" type="string">
+            <column name="COMPANYKEY" length="7" not-null="true" />
+        </property>
+        <property name="rolekey" type="string">
+            <column name="ROLEKEY" length="10" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="100" />
+        </property>
+        <property name="msisdn" type="string">
+            <column name="MSISDN" length="100" />
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" not-null="true" />
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

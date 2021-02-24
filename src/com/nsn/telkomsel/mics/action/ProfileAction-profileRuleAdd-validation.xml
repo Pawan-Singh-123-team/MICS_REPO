@@ -1,0 +1,36 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="rulename">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <!-- <message key="errors.required" />-->
+            <message><![CDATA[ Rule Name is required ]]></message>
+        </field-validator>
+    </field>
+   
+    <field name="orderindex">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$]]></param> 
+			<message><![CDATA[ Order Index must be numeric value ]]></message>
+		</field-validator>
+    </field>
+ <!--    
+    <field name="calledpartynumber">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$%?]]></param> 
+			<message><![CDATA[ Called Party Number be numeric value ]]></message>
+		</field-validator>
+    </field>
+    
+    <field name="callingpartynumber">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$%?]]></param> 
+			<message><![CDATA[ Calling Party Number be numeric value ]]></message>
+		</field-validator>
+    </field>
+    -->
+    <validator type="expression">
+		<param name="expression"><![CDATA[ ( (companyOnNet == true)|| (virtualOnNet == true) || (partnerOnNet == true) || (communityOnNet == true)|| (homeNetwork == true)|| (national == true) || (international == true)||(shortcode == true)||(offNet == true)||(other == true)) ]]></param>
+		<message><![CDATA[ Please select at least one party type ]]></message>
+	</validator>
+</validators>

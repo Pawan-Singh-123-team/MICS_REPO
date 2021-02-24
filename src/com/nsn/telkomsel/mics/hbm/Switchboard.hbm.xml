@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Switchboard" table="switchboard">
+        <id name="switchboardKey" type="string">
+            <column name="SwitchboardKey" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyId" type="string">
+            <column name="CompanyID" length="5" not-null="true" />
+        </property>
+        <property name="switchboardName" type="string">
+            <column name="SwitchboardName" length="100" not-null="true" />
+        </property>
+        <property name="publicNumber" type="string">
+            <column name="PublicNumber" length="45" />
+        </property>
+        <property name="privateNumber" type="string">
+            <column name="PrivateNumber" length="45" />
+        </property>
+        <property name="annoId" type="java.lang.Integer">
+            <column name="AnnoID" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

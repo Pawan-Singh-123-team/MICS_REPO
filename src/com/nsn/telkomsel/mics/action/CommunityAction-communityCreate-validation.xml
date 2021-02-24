@@ -1,0 +1,33 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="communityname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <!-- <message key="errors.required" />-->
+            <message><![CDATA[ Community Name is required ]]></message>
+        </field-validator>
+    </field>
+    <field name="contactperson">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <!-- <message key="errors.required" />-->
+            <message><![CDATA[ Contact Person is required ]]></message>
+        </field-validator>
+    </field>
+    <field name="address">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+           <message><![CDATA[ Address is required ]]></message>
+        </field-validator>
+    </field>
+    <field name="email">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+           <message><![CDATA[ Email is required ]]></message>
+        </field-validator>
+        <field-validator type="email">
+            <message><![CDATA[ Email is invalid ]]></message>
+        </field-validator>
+    </field>
+    
+</validators>

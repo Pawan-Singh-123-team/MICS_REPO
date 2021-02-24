@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Numbertranslation" table="numbertranslation">
+        <id name="numberTranslationKey" type="string">
+            <column name="NumberTranslationKey" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyId" type="string">
+            <column name="CompanyID" length="5" />
+        </property>
+        <property name="inPrefix" type="string">
+            <column name="InPrefix" length="45" />
+        </property>
+        <property name="minLength" type="java.lang.Integer">
+            <column name="MinLength" />
+        </property>
+        <property name="maxLength" type="java.lang.Integer">
+            <column name="MaxLength" />
+        </property>
+        <property name="trimDigits" type="java.lang.Integer">
+            <column name="TrimDigits" />
+        </property>
+        <property name="outPrefix" type="string">
+            <column name="OutPrefix" length="45" />
+        </property>
+        <property name="calledPartyType" type="java.lang.Integer">
+            <column name="CalledPartyType" />
+        </property>
+        <property name="orderIndex" type="java.lang.Integer">
+            <column name="OrderIndex" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" not-null="true" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

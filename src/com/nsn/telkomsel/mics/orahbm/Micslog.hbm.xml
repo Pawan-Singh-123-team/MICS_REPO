@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Micslog" table="MICSLOG" schema="MICS">
+        <id name="id" type="long">
+            <column name="ID" length="15" />
+            <generator class="sequence">
+                <param name="sequence">MICSLOG_SEQUENCE</param>
+            </generator>
+        </id>
+        <property name="timestamp" type="timestamp">
+            <column name="TIMESTAMP" length="19" not-null="true" />
+        </property>
+        <property name="activity" type="string">
+            <column name="ACTIVITY" length="50" />
+        </property>
+        <property name="module" type="string">
+            <column name="MODULE" length="50" />
+        </property>
+        <property name="mics_desc" type="string">
+            <column name="MICS_DESC" length="500" />
+        </property>
+        <property name="mics_user" type="string">
+            <column name="MICS_USER" length="100" />
+        </property>
+        <property name="company_id" type="string">
+            <column name="COMPANY_ID" length="10" />
+        </property> 
+        <property name="status" type="string">
+            <column name="STATUS" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

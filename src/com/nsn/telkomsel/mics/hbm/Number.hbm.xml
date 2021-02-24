@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2013 6:12:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.hbm.Number" table="number">
+        <id name="numberKey" type="string">
+            <column name="NumberKey" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyId" type="string">
+            <column name="CompanyID" length="5" not-null="true" />
+        </property>
+        <property name="userKey" type="string">
+            <column name="UserKey" length="45" not-null="true" />
+        </property>
+        <property name="orderIndex" type="java.lang.Integer">
+            <column name="OrderIndex" />
+        </property>
+        <property name="publicNumber" type="string">
+            <column name="PublicNumber" length="45">
+                <comment>MSISDN (long number). If user only has one MSISDN, then this the same as UserNumber.</comment>
+            </column>
+        </property>
+        <property name="privateNumber" type="string">
+            <column name="PrivateNumber" length="45">
+                <comment>Private number (short number)</comment>
+            </column>
+        </property>
+        <property name="numberType" type="java.lang.Integer">
+            <column name="NumberType">
+                <comment>Mobile = 0, SIP = 1</comment>
+            </column>
+        </property>
+        <property name="lastAnswer" type="string">
+            <column name="LastAnswer" length="16777215" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="45" />
+        </property>
+        <property name="updateTimestamp" type="timestamp">
+            <column name="UpdateTimestamp" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

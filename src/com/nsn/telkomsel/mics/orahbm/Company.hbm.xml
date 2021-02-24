@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Company" table="COMPANY" schema="MICS">
+        <id name="companykey" type="string">
+            <column name="COMPANYKEY" length="7" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyname" type="string">
+            <column name="COMPANYNAME" length="100" not-null="true" />
+        </property>
+        <property name="contactperson" type="string">
+            <column name="CONTACTPERSON" length="50" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="50" />
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" length="250" />
+        </property>
+        <property name="domainname" type="string">
+            <column name="DOMAINNAME" length="100" />
+        </property>
+        <property name="chargestring" type="string">
+            <column name="CHARGESTRING" length="4" />
+        </property>
+        <property name="locked" type="big_decimal">
+            <column name="LOCKED" precision="22" scale="0" />
+        </property>
+        <property name="enableforcedonnet" type="big_decimal">
+            <column name="ENABLEFORCEDONNET" precision="22" scale="0" />
+        </property>
+        <property name="enablegrouphunting" type="big_decimal">
+            <column name="ENABLEGROUPHUNTING" precision="22" scale="0" />
+        </property>
+        <property name="enableprivatecall" type="big_decimal">
+            <column name="ENABLEPRIVATECALL" precision="22" scale="0" />
+        </property>
+        <property name="companycli" type="string">
+            <column name="COMPANYCLI" length="50" />
+        </property>
+        <property name="usemaincliprefix" type="string">
+            <column name="USEMAINCLIPREFIX" length="50" />
+        </property>
+        <property name="clioption" type="big_decimal">
+            <column name="CLIOPTION" precision="22" scale="0" />
+        </property>
+        <property name="enablevpnchargingforsms" type="big_decimal">
+            <column name="ENABLEVPNCHARGINGFORSMS" precision="22" scale="0" />
+        </property>
+        <property name="defaultincs" type="string">
+            <column name="DEFAULTINCS" length="10" />
+        </property>
+        <property name="defaultincsdesc" type="string">
+            <column name="DEFAULTINCSDESC" length="250" />
+        </property>
+        <property name="bypassdefaultincs" type="string">
+            <column name="BYPASSDEFAULTINCS" length="1" />
+        </property>
+        <property name="forcedincs" type="string">
+            <column name="FORCEDINCS" length="10" />
+        </property>
+        <property name="forcedincsdesc" type="string">
+            <column name="FORCEDINCSDESC" length="250" />
+        </property>
+        <property name="bypassforcedincs" type="string">
+            <column name="BYPASSFORCEDINCS" length="1" />
+        </property>
+        <property name="defaultoutcs" type="string">
+            <column name="DEFAULTOUTCS" length="10" />
+        </property>
+        <property name="defaultoutcsdesc" type="string">
+            <column name="DEFAULTOUTCSDESC" length="250" />
+        </property>
+        <property name="bypassdefaultoutcs" type="string">
+            <column name="BYPASSDEFAULTOUTCS" length="1" />
+        </property>
+        <property name="forcedoutcs" type="string">
+            <column name="FORCEDOUTCS" length="10" />
+        </property>
+        <property name="forcedoutcsdesc" type="string">
+            <column name="FORCEDOUTCSDESC" length="250" />
+        </property>
+        <property name="bypassforcedoutcs" type="string">
+            <column name="BYPASSFORCEDOUTCS" length="1" />
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" not-null="true" />
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

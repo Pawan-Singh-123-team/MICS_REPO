@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Partnership" table="PARTNERSHIP" schema="MICS">
+        <id name="partnershipkey" type="string">
+            <column name="PARTNERSHIPKEY" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="partnershipname" type="string">
+            <column name="PARTNERSHIPNAME" length="100" not-null="true">
+                <comment>Unique name of partnership</comment>
+            </column>
+        </property>
+        <property name="companykey1" type="string">
+            <column name="COMPANYKEY1" length="7" not-null="true">
+                <comment>ID of the first company</comment>
+            </column>
+        </property>
+        <property name="companykey2" type="string">
+            <column name="COMPANYKEY2" length="7" not-null="true">
+                <comment>ID of the second company</comment>
+            </column>
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" not-null="true">
+                <comment>Last update user</comment>
+            </column>
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19" not-null="true">
+                <comment>Last update timestamp</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

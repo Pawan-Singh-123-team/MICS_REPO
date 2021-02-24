@@ -1,0 +1,80 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="companykey">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <!-- <message key="errors.required" />-->
+            <message><![CDATA[ Company Key is required ]]></message>
+        </field-validator>
+        <field-validator type="stringlength">
+			<param name="maxLength">7</param>
+			<param name="minLength">5</param>
+			<param name="trim">true</param>
+			<message><![CDATA[ Company Key must be a 5-7 digit number ]]></message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$]]></param> 
+			<message><![CDATA[ Company Key must be numeric value ]]></message>
+		</field-validator>
+    </field>
+    <field name="companyname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+           <message><![CDATA[ Company Name is required ]]></message>
+        </field-validator>
+    </field>
+    <field name="chargestring">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message><![CDATA[ Charge String is required ]]></message>
+        </field-validator>
+        <field-validator type="stringlength">
+			<param name="maxLength">4</param>
+			<param name="minLength">4</param>
+			<param name="trim">true</param>
+			<message><![CDATA[ Charge String must be a 4 digit number ]]></message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$]]></param> 
+			<message><![CDATA[ Charge String must be numeric value ]]></message>
+		</field-validator>
+    </field>
+    <field name="contactperson">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message><![CDATA[ Contact Person is required ]]></message>
+        </field-validator>
+    </field>
+    <field name="email">
+        <field-validator type="requiredstring">
+            <message><![CDATA[ Email is required ]]></message>
+        </field-validator>
+        <field-validator type="email">
+            <message><![CDATA[ Email is invalid ]]></message>
+        </field-validator>
+    </field>
+     <field name="domainname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+           <message><![CDATA[ Company Domain Name is required ]]></message>
+        </field-validator>
+    </field>
+    <field name="companycli">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message><![CDATA[ Company Main Number is required ]]></message>
+        </field-validator>
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^[\+]?\d*$]]></param> 
+			<message><![CDATA[ Company Main Number must be numeric value or started with plus sign]]></message>
+		</field-validator>
+    </field>
+    <field name="usemaincliprefix" >
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+             <message><![CDATA[ Company Main Number Prefix is required ]]></message>
+        </field-validator>
+    </field>
+
+    
+</validators>

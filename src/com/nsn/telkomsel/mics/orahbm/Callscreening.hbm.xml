@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Callscreening" table="CALLSCREENING" schema="MICS">
+        <id name="callscreeningkey" type="string">
+            <column name="CALLSCREENINGKEY" length="15" />
+            <generator class="assigned" />
+        </id>
+        <property name="callscreeningname" type="string">
+            <column name="CALLSCREENINGNAME" length="100" not-null="true">
+                <comment>Unique meaningful name of call screening policy</comment>
+            </column>
+        </property>
+        <property name="callscreeningdesc" type="string">
+            <column name="CALLSCREENINGDESC" length="250" not-null="true">
+                <comment>Unique meaningful name of call screening policy</comment>
+            </column>
+        </property>
+        <property name="companykey" type="string">
+            <column name="COMPANYKEY" length="7" not-null="true">
+                <comment>Company ID of the owner of call screening policy</comment>
+            </column>
+        </property>
+        <property name="screeningtype" type="big_decimal">
+            <column name="SCREENINGTYPE" precision="22" scale="0" not-null="true">
+                <comment>Type of the call screening 1. Outgoing 2. Incoming</comment>
+            </column>
+        </property>
+        <property name="screeninglevel" type="big_decimal">
+            <column name="SCREENINGLEVEL" precision="22" scale="0" not-null="true">
+                <comment>Level of the call screening policy 1. Company 2. Group 3. User</comment>
+            </column>
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" not-null="true">
+                <comment>Last update user</comment>
+            </column>
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19" not-null="true">
+                <comment>Last update time stamp</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

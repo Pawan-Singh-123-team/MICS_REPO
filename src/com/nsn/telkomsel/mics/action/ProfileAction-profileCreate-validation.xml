@@ -1,0 +1,15 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="callscreeningname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <!-- <message key="errors.required" />-->
+            <message><![CDATA[ Profile Name is required ]]></message>
+        </field-validator>
+    </field>
+     <validator type="expression">
+		<param name="expression"><![CDATA[ ( maxRules > 0) ]]></param>
+		<message><![CDATA[ Please add at least one rule ]]></message>
+	</validator>
+    
+</validators>

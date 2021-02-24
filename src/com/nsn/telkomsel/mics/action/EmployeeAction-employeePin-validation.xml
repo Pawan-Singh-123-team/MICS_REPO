@@ -1,0 +1,35 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+   
+   
+    <field name="pin">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$]]></param> 
+			<message><![CDATA[ PIN must be numeric value ]]></message>
+		</field-validator>
+        <field-validator type="stringlength">
+			<param name="maxLength">5</param>
+			<param name="minLength">5</param>
+			<param name="trim">true</param>
+			 <message><![CDATA[ PIN length must be 5 Digit ]]></message>
+		</field-validator>
+    </field>
+    <field name="pinConfirmation">
+        <field-validator type="regex">
+			<param name="expression"><![CDATA[^\d*$]]></param> 
+			<message><![CDATA[ PIN confirmation be numeric value ]]></message>
+		</field-validator>
+        <field-validator type="stringlength">
+			<param name="maxLength">5</param>
+			<param name="minLength">5</param>
+			<param name="trim">true</param>
+			 <message><![CDATA[ PIN Confirmation length must be 5 Digit ]]></message>
+		</field-validator>
+		<field-validator type="fieldexpression">
+			<param name="expression">(pinConfirmation == pin)</param>
+			<message><![CDATA[ PIN and PIN confirmation does not match ]]></message>
+		</field-validator>
+    </field>
+   
+    
+</validators>

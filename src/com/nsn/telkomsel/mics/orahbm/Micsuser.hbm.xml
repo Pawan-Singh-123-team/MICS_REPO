@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 1:29:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.nsn.telkomsel.mics.orahbm.Micsuser" table="MICSUSER" schema="MICS">
+        <id name="micsuserkey" type="string">
+            <column name="MICSUSERKEY" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="micsfirstname" type="string">
+            <column name="MICSFIRSTNAME" length="50" not-null="true" />
+        </property>
+        <property name="companykey" type="string">
+            <column name="COMPANYKEY" length="7" not-null="true" />
+        </property>
+        <property name="groupkey" type="string">
+            <column name="GROUPKEY" length="10" not-null="true" />
+        </property>
+        <property name="subgroupid" type="big_decimal">
+            <column name="SUBGROUPID" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="usergroupid" type="big_decimal">
+            <column name="USERGROUPID" precision="22" scale="0" />
+        </property>
+        <property name="vpngroupid" type="big_decimal">
+            <column name="VPNGROUPID" precision="22" scale="0" />
+        </property>
+        <property name="mainpublicnumber" type="string">
+            <column name="MAINPUBLICNUMBER" length="100" />
+        </property>
+        <property name="mainprivatenumber" type="string">
+            <column name="MAINPRIVATENUMBER" length="100" />
+        </property>
+        <property name="usertype" type="big_decimal">
+            <column name="USERTYPE" precision="22" scale="0" />
+        </property>
+        <property name="locked" type="big_decimal">
+            <column name="LOCKED" precision="22" scale="0" />
+        </property>
+        <property name="mainnumberascli" type="big_decimal">
+            <column name="MAINNUMBERASCLI" precision="22" scale="0" />
+        </property>
+        <property name="mainnumberaschargedparty" type="big_decimal">
+            <column name="MAINNUMBERASCHARGEDPARTY" precision="22" scale="0" />
+        </property>
+        <property name="huntingoption" type="big_decimal">
+            <column name="HUNTINGOPTION" precision="22" scale="0" />
+        </property>
+        <property name="keephuntingonbusy" type="big_decimal">
+            <column name="KEEPHUNTINGONBUSY" precision="22" scale="0" />
+        </property>
+        <property name="reverseCharging" type="big_decimal">
+            <column name="REVERSECHARGING" precision="22" scale="0" />
+        </property>
+        <property name="incs" type="string">
+            <column name="INCS" length="10" />
+        </property>
+        <property name="incsdesc" type="string">
+            <column name="INCSDESC" length="250" />
+        </property>
+        <property name="bypassincs" type="string">
+            <column name="BYPASSINCS" length="1" />
+        </property>
+        <property name="outcs" type="string">
+            <column name="OUTCS" length="10" />
+        </property>
+        <property name="outcsdesc" type="string">
+            <column name="OUTCSDESC" length="4000" />
+        </property>
+        <property name="bypassoutcs" type="string">
+            <column name="BYPASSOUTCS" length="1" />
+        </property>
+        <property name="enableannorecording" type="big_decimal">
+            <column name="ENABLEANNORECORDING" precision="22" scale="0" />
+        </property>
+        <property name="pin" type="string">
+            <column name="PIN" length="10" />
+        </property>
+        <property name="language" type="string">
+            <column name="LANGUAGE" length="10" />
+        </property>
+        <property name="updateuser" type="string">
+            <column name="UPDATEUSER" length="50" not-null="true" />
+        </property>
+        <property name="updatetimestamp" type="timestamp">
+            <column name="UPDATETIMESTAMP" length="19" not-null="true" />
+        </property>
+        <property name="micslastname" type="string">
+            <column name="MICSLASTNAME" length="50" />
+        </property>
+        <property name="initialmainpublicnumber" type="string">
+            <column name="INITIALMAINPUBLICNUMBER" length="100" />
+        </property>
+        <property name="initialmainprivatenumber" type="string">
+            <column name="INITIALMAINPRIVATENUMBER" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>
